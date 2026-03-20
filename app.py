@@ -9,7 +9,7 @@ from src.ai_agents import set_api_key, get_final_investment_report, get_quant_ai
 
 st.set_page_config(page_title="AI Portfolio Optimizer", layout="wide")
 
-st.title("Stock Portfolio Optimization")
+st.title("Stock Portfolio Optimizer")
 
 
 # Sidebar
