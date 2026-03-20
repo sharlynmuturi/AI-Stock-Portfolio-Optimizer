@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+yfinance
+prophet
+agno
+google-generativeai
+google-genai
+plotly
+python-dotenv
