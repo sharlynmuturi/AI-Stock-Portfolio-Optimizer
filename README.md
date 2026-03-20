@@ -14,7 +14,7 @@ It answers key investor questions:
 
 ## Disclaimer
 
-This dashboard is for educational and informational purposes only. It does not constitute financial advice. Please verify results independently before making investment decisions.   
+The dashboard is for educational and informational purposes only. It does not constitute financial advice. Please verify results independently before making investment decisions.   
 
 * * *
 
@@ -43,7 +43,7 @@ This dashboard is for educational and informational purposes only. It does not c
 | src/prophet_model.py | Prophet forecasting functions for future stock prices. |
 | src/portfolio.py | Portfolio risk estimation (covariance) and Sharpe ratio-based optimization. |
 | src/ai_agents.py | Defines AI agents for market analysis, company research, stock recommendations, portfolio analysis, and final report generation. Includes helper functions for Google API key handling and data preparation. |
-| models.py | Lists and validates available Google Generative AI models for generateContent. Adjust models in ai_agents.py as necessary. |
+| src/models.py | Lists and validates available Google Generative AI models for generateContent. Adjust models in ai_agents.py as necessary. |
 | app.py | Main Streamlit dashboard. Runs portfolio optimization, AI strategist, and AI + Quant insights tabs. |
 
 * * *
@@ -70,12 +70,16 @@ pip install -r requirements.txt
 ```
 4.  Create a `.env` file and add your **Google API key**:
 
-Create an **API key** in the [Google Cloud Console](https://console.cloud.google.com/). Copy it into `.env` or input it in the Streamlit sidebar.
+Create an **API key** at [Google Cloud Console](https://console.cloud.google.com/). Copy it into `.env` or input it in the Streamlit sidebar.
     
 ``` bash
 GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 ```
-
+4.  Run the Streamlit app:
+    
+``` bash
+streamlit run app.py
+```
 * * *
 
 ## How It Works
@@ -140,7 +144,6 @@ GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 | Use forecast mean | Reduces noise in expected return estimation |
 | Historical covariance | More robust than volatility forecasts |
 | Optimize for Sharpe ratio | Industry standard for risk-adjusted return |
-| No transaction costs | Simplicity and clarity |
 
 * * *
 
@@ -164,8 +167,6 @@ GOOGLE_API_KEY="YOUR_API_KEY_HERE"
     
 *   Only **prices** are forecasted, **volatility/risk is not forecasted** — risk is derived from historical covariance.
     
-*   Model does not account for **macro events, news sentiment, or geopolitical risks** unless AI agents are used separately.
-    
 
 ### 3\. Portfolio Optimization Limitations
 
@@ -179,26 +180,10 @@ GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 *   Optimized solely for **Sharpe ratio**, which may overemphasize return/risk and ignore other factors like liquidity or drawdowns.
     
 
-### 4\. AI Integration Limitations
-
-
-*   AI agents rely on **Google Generative AI models**, which may generate **approximate insights**.
-    
-*   Results are **only as good as the input data**; invalid tickers or missing info may lead to poor recommendations.
-    
-*   AI does not execute trades or validate strategies in real markets - purely **informational and analytical**.
-    
-*   Model outputs may include **over-optimistic or subjective language**, requiring user judgment.
-    
-
-### 5\. Computational and Practical Limitations
+### 4\. Practical Limitations
 
 
 *   Prophet forecasts and AI queries can be **time-consuming for many tickers**.
-    
-*   Streamlit session state may **consume memory** if multiple runs are performed.
-    
-*   Real-time portfolio monitoring or dynamic rebalancing is **not implemented**.
     
 * * *
 
