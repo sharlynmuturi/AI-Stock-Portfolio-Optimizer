@@ -165,7 +165,7 @@ streamlit run app.py
     
 *   Forecasts are **forward-looking expectations**, not guarantees; real returns may differ significantly.
     
-*   Only **prices** are forecasted, **volatility/risk is not forecasted** — risk is derived from historical covariance.
+*   Only **prices** are forecasted, **volatility/risk is not forecasted** - risk is derived from historical covariance.
     
 
 ### 3\. Portfolio Optimization Limitations
